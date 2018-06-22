@@ -1,0 +1,13 @@
+.vscode/
+.rpt2_cache/
+node_modules/
+page/
+coverage/
+demo/
+test/
+ISSUE_TEMPLATE.md
+appveyor.yml
+.editorconfig
+tsconfig.json
+tslint.json
+yarn.lock

@@ -1,0 +1,52 @@
+{
+  "name": "best-response",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.common.js",
+  "module": "dist/index.mjs",
+  "jsnext:main": "dist/index.mjs",
+  "types": "dist/typings/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run lint && node scripts/build.js",
+    "dev": "m-sh 'npm run dev:tsc'",
+    "dev:tsc": "npm run clean && tsc -w",
+    "debug": "node --inspect-brk dist/index.js",
+    "lint": "tslint --project tsconfig.json --format stylish",
+    "prepublish": "npm test",
+    "test": "npm run lint && npm run build && npm run jasmine",
+    "jasmine": "istanbul cover jasmine-node test"
+  },
+  "dependencies": {
+    "tslib": "1.x.x"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.5",
+    "ghooks": "^2.0.2",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.14.5",
+    "lodash.merge": "^4.6.1",
+    "multi-shell": "^1.0.3",
+    "rimraf": "*",
+    "rollup": "^0.58.0",
+    "rollup-plugin-typescript2": "^0.13.0",
+    "tslint": "5.x.x",
+    "tslint-config-standard": "7.x.x",
+    "typescript": "2.x.x",
+    "uglify-js": "^3.3.21"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "sh scripts/pre-commit.sh"
+    }
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/height/best-response.git"
+  },
+  "bugs": "https://github.com/height/best-response/issues"
+}
